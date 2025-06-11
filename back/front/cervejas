@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cervejaria Biesdorf - Cervejas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="dashboard">
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="img/logo.jpg" class="logo"  style="min-height: 50px; min-width: 200px;">
+        </div>
+        
+        <nav class="main-menu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home" style="margin-right: 10px;"></i> Home</a></li>
+                <li><a href="pedidos.html"><i class="fas fa-clipboard-list" style="margin-right: 10px;"></i> Pedidos</a></li>
+                <li><a href="clientes.html"><i class="fas fa-users" style="margin-right: 10px;"></i> Clientes</a></li>
+                <li class="active"><a href="cervejas.html"><i class="fas fa-beer" style="margin-right: 10px;"></i> Cervejas</a></li>
+                <!-- <li><a href="relatorios.html"><i class="fas fa-chart-bar"></i> Relatórios</a></li> -->
+            </ul>
+        </nav>
+        
+        <div class="user-profile">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <span class="user-name">Usuário</span>
+                <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <header class="top-bar">
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <h1><i class="fas fa-beer"></i> Cadastro de Cervejas</h1>
+        </header>
+        
+        <div class="content-area">
+            <form class="beer-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipo-cerveja">Tipo de Cerveja</label>
+                        <select id="tipo-cerveja" required>
+                            <option value="">Selecione...</option>
+                            <option value="pilsen">Pilsen</option>
+                            <option value="ipa">IPA</option>
+                            <option value="viena">Viena</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="embalagem">Embalagem</label>
+                        <select id="embalagem" required>
+                            <option value="">Selecione...</option>
+                            <option value="litro">Litro</option>
+                            <option value="PET">PET</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data-producao">Data de Produção</label>
+                        <input type="date" id="data-producao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade">Quantidade</label>
+                        <div class="quantity-input">
+                            <input type="number" id="quantidade" min="1" required>
+                            <span class="unit" id="quantidade-unit">Litros</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="valor-unitario">Valor Unitário (R$)</label>
+                        <input type="number" id="valor-unitario" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lote">Número do Lote</label>
+                        <input type="text" id="lote">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Salvar Cerveja</button>
+                    <button type="reset" class="btn-secondary">Limpar</button>
+                </div>
+            </form>
+            <br>
+            <div class="cervejas-list">
+                <h3><i class="fas fa-list"></i> Estoque Atual</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Embalagem</th>
+                                <th>Data Produção</th>
+                                <th>Quantidade</th>
+                                <th>Valor Unitário</th>
+                                <th>Lote</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Conteúdo gerado pelo JS, função carregarCervejas() para exibir o estoque via 
+                             banco Json real na página -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/cervejas.js"></script>
+    <script src ="js/general.js"></script>
+    <script src ="js/login.js"></script>
+</body>
+</html>
