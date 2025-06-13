@@ -66,41 +66,6 @@ async function atualizarValorVendas7Dias() {
     console.error('Erro ao calcular valor de vendas semanal:', error);
   }
 }
-/* async function atualizarTicketMedio7Dias() {
-  try {
-    const response = await fetch('/api/pedidos');
-    if (!response.ok) throw new Error('Erro ao buscar pedidos');
-
-    const pedidos = await response.json();
-
-    const hoje = new Date();
-    const seteDiasAtras = new Date();
-    seteDiasAtras.setDate(hoje.getDate() - 6);
-
-    let totalSemanal = 0;
-    let totalPedidos = 0;
-
-    pedidos.forEach(pedido => {
-      if (!pedido.dataEntrega || !pedido.itens) return;
-
-      const dataEntrega = new Date(pedido.dataEntrega);
-
-      if (dataEntrega >= seteDiasAtras && dataEntrega <= hoje) {
-        const totalPedido = pedido.itens.reduce((acc, item) => acc + (item.quantidade * item.valorUnitario), 0);
-        totalSemanal += totalPedido;
-        totalPedidos++;
-      }
-    });
-
-    const ticketMedio = totalPedidos > 0 ? totalSemanal / totalPedidos : 0;
-
-    const statValue = document.querySelector('.stat-ticket-medio');
-    statValue.textContent = `R$ ${ticketMedio.toFixed(2)}`;
-
-  } catch (error) {
-    console.error('Erro ao calcular ticket médio:', error);
-  }
-} */
 
 async function atualizarTicketMedio() {
   try {
@@ -133,4 +98,3 @@ async function atualizarTicketMedio() {
 atualizarPedidosParaHoje();
 atualizarValorVendas7Dias();
 atualizarTicketMedio();
-// atualizarTicketMedio7Dias();
