@@ -1,3 +1,0 @@
-Banco de Dados Firebase
-
-Pasta contem arquivo firebase.js e firebase.json na aplicação original
